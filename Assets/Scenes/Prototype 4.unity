@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 797607566}
   - component: {fileID: 797607565}
   m_Layer: 0
-  m_Name: FocalPoint
+  m_Name: Focal Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b1d6420a46c4f449de289d1fc5d175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0
+  rotationSpeed: 3
 --- !u!4 &797607566
 Transform:
   m_ObjectHideFlags: 0
@@ -368,6 +368,11 @@ Transform:
   - {fileID: 1211419928}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1172442232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1758629138285362, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+  m_PrefabInstance: {fileID: 787386115}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1211016355
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,7 +783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   hasPowerup: 0
-  powerupIndicator: {fileID: 0}
+  powerupIndicator: {fileID: 1172442232}
 --- !u!54 &1638267261
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -814,6 +819,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5138366617085389581, guid: ce25ec1c9d68c984f9c98dede128e2a5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7209871177242179936, guid: ce25ec1c9d68c984f9c98dede128e2a5, type: 3}
       propertyPath: m_Name
       value: PowerUp
