@@ -5,16 +5,37 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    private float spawnRange = 9f;
-    void Start()
+    private float spawnRange;
+    public int enemyCount;
+    public int waveNumber = 1;
+    public GameObject powerupPrefab;
+
+    private void Start()
     {
-        //Step 5
-        //float spawnPosX = Random.Range(-spawnRange, spawnRange);
-        //float spawnPosZ = Random.Range(-spawnRange, spawnRange);
-        //Vector3 randomPos = new Vector3(spawnPosX, 0, spawnPosZ);
-        //Instantiate(enemyPrefab, new Vector3(0, 0, 6), enemyPrefab.transform.rotation);
-        Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+        SpawnEnemyWave(waveNumber);
+        Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
     }
+
+    private void Update()
+    {
+        enemyCount = FindObjectsOfType<Enemy>().Length;
+        if (enemyCount == 0)
+        {
+            waveNumber++;
+            SpawnEnemyWave(waveNumber);
+            Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
+        }
+    }
+
+    void SpawnEnemyWave(int enemiesTospawn)
+    {
+        for (int i = 0; i < enemiesTospawn; i++)
+        {
+            Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+        }
+
+    }
+
     private Vector3 GenerateSpawnPosition()
     {
         float spawnPosX = Random.Range(-spawnRange, spawnRange);
